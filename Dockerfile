@@ -8,4 +8,4 @@ RUN sudo npm install --global yarn
 
 RUN gem install bundler -v 2.2.33
 
-ENV NODE_OPTIONS="--max-old-space-size=512"
+ENV NODE_OPTIONS="--max-old-space-size=1536"
