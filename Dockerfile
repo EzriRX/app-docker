@@ -7,3 +7,5 @@ RUN sudo apt-get update --allow-releaseinfo-change && sudo apt-get install -y g+
 RUN sudo npm install --global yarn
 
 RUN gem install bundler -v 2.2.33
+
+ENV NODE_OPTIONS="--max-old-space-size=512"
