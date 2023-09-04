@@ -1,4 +1,4 @@
-FROM cimg/ruby:3.0.6
+FROM cimg/ruby:3.1
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
