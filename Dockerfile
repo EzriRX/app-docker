@@ -1,7 +1,11 @@
 FROM ruby:3.1-slim-bullseye
 
 # Install dependencies
-RUN apt update && apt install -y build-essential software-properties-common git g++ qtbase5-dev qt5-qmake qtbase5-dev-tools libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x nano curl libcurl4 libcurl4-openssl-dev ca-certificates gnupg libmagickcore-dev libmagickwand-dev imagemagick xvfb libmariadb-dev default-mysql-client
+RUN apt update && apt install -y build-essential software-properties-common git g++ qtbase5-dev qt5-qmake qtbase5-dev-tools libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x nano wget curl libcurl4 libcurl4-openssl-dev ca-certificates gnupg libmagickcore-dev libmagickwand-dev imagemagick xvfb libmariadb-dev default-mysql-client
+
+# Install dockerize
+ENV DOCKERIZE_VERSION v0.7.0
+RUN wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar xzf - -C /usr/local/bin
 
 # Install NodeJs
 RUN mkdir -p /etc/apt/keyrings
