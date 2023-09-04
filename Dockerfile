@@ -1,10 +1,13 @@
-FROM cimg/ruby:3.1
+FROM ruby:3.1-slim-bullseye
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+# Install dependencies
 
-RUN sudo apt-get update --allow-releaseinfo-change && sudo apt-get install -y g++ qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x nano libcurl4 libcurl4-openssl-dev libmagickcore-dev libmagickwand-dev imagemagick xvfb nodejs default-mysql-client
+RUN apt update && apt install -y build-essential software-properties-common git g++ qtbase5-dev qt5-qmake qtbase5-dev-tools libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x nano curl libcurl4 libcurl4-openssl-dev libmagickcore-dev libmagickwand-dev imagemagick xvfb libmariadb-dev default-mysql-client
 
-RUN sudo npm install --global yarn
+# Install Node 16 & Yarn
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+RUN apt install -y nodejs
+RUN npm install --global yarn
 
 RUN gem install bundler -v 2.2.33
 
