@@ -1,7 +1,7 @@
-FROM ruby:3.1-slim-bullseye
+FROM ruby:3.1.4-slim
 
 # Install dependencies
-RUN apt update && apt install -y build-essential software-properties-common git g++ qtbase5-dev qt5-qmake qtbase5-dev-tools libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x nano wget curl libcurl4 libcurl4-openssl-dev ca-certificates gnupg libmagickcore-dev libmagickwand-dev imagemagick xvfb libmariadb-dev default-mysql-client
+RUN apt update && apt install -y build-essential software-properties-common git g++ gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x nano wget curl libcurl4 libcurl4-openssl-dev ca-certificates gnupg libmagickcore-dev libmagickwand-dev imagemagick xvfb libmariadb-dev default-mysql-client
 
 # Install dockerize
 ENV DOCKERIZE_VERSION v0.7.0
